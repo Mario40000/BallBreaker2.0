@@ -12,28 +12,33 @@ public class GameOverController : MonoBehaviour {
     public Text bricksDestroyed;
     public float waitTime = 0.0f;
 
+    private GameObject click;
+
 	void Start ()
     {
-        //StartCoroutine(TitleReturn());
-        scoreText.text = "Final score: " + StaticData.score.ToString();
-        bricksDestroyed.text = "Bricks destroyed: " + StaticData.destroyedBricks.ToString();
+        StartCoroutine(TitleReturn());
+        scoreText.text = StaticData.score.ToString();
+        bricksDestroyed.text = StaticData.destroyedBricks.ToString();
         StaticData.totalDestroyedBricks += StaticData.destroyedBricks;
+        click = GameObject.Find("ClickFX");
     }
 
     void Update()
     {
-       if(Input.GetButtonDown("Jump"))
-        {
-            SceneManager.LoadScene("TitleScene");
-        }
+       
     }
 
     //Metodo para cargar los carteles de la pantalla y devolvernos al titulo
     IEnumerator TitleReturn ()
     {
-        scoreText.text = "Final score: " + StaticData.score.ToString();
-        bricksDestroyed.text = "Bricks destroyed: " + StaticData.destroyedBricks.ToString();
         yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    //Metodo para volver nada mas pulsar el boton
+    public void ReturnTitle ()
+    {
+        click.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("TitleScene");
     }
 }

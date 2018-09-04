@@ -34,7 +34,7 @@ public class GroundControl : MonoBehaviour
             //ballRb.isKinematic = true;
             
             //ball.GetComponent<Transform>().transform.parent = paddle.GetComponent<Transform>().transform;
-            Destroy(other);
+            Destroy(other.gameObject);
             paddleController.isBallDead = true;
             ballLoseSound.GetComponent<AudioSource>().Play();
             gameManager.LosingBall();

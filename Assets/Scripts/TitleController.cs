@@ -13,6 +13,8 @@ public class TitleController : MonoBehaviour
     public Button optionsbutton;
     public GameObject clickFX;
     public float waitTime;
+    public GameObject canvasTitle;
+    public GameObject canvasOptions;
 
 	//Metodo para arrancar el juego al pulsar start
     public void StartGame()
