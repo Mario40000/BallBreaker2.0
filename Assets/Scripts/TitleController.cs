@@ -12,11 +12,26 @@ public class TitleController : MonoBehaviour
     public Button startButton;
     public Button optionsbutton;
     public GameObject clickFX;
+    public GameObject hoverFX;
     public float waitTime;
     public GameObject canvasTitle;
     public GameObject canvasOptions;
+    public Text highScore;
+    public Text bricks;
+    public Text maxLevel;
 
-	//Metodo para arrancar el juego al pulsar start
+    //Ordenamos los canvas al iniciar la pantalla
+    private void Awake()
+    {
+        canvasTitle.SetActive(true);
+        canvasOptions.SetActive(false);
+        highScore.text = StaticData.hiScore.ToString();
+        bricks.text = StaticData.totalDestroyedBricks.ToString();
+        maxLevel.text = StaticData.maxLevel.ToString();
+
+    }
+
+    //Metodo para arrancar el juego al pulsar start
     public void StartGame()
     {
         StaticDataReset();
@@ -42,4 +57,28 @@ public class TitleController : MonoBehaviour
         StaticData.level = 1;
         StaticData.destroyedBricks = 0;
     }
+
+    //Metodo para pasar a las opciones
+    public void Options()
+    {
+        clickFX.GetComponent<AudioSource>().Play();
+        canvasTitle.SetActive(false);
+        canvasOptions.SetActive(true);
+    }
+
+    //Metodo para volver de las opciones al titulo
+    public void ReturnTitle()
+    {
+        clickFX.GetComponent<AudioSource>().Play();
+        canvasOptions.SetActive(false);
+        canvasTitle.SetActive(true); 
+    }
+
+    //Metodo para abandonar la partida
+    public void ExitGame()
+    {
+        clickFX.GetComponent<AudioSource>().Play();
+        Application.Quit();
+    }
+
 }

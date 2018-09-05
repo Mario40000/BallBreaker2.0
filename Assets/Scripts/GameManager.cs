@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     void SuicideBall()
     {
         GameObject ballTemp = GameObject.FindGameObjectWithTag("Ball");
-        if(ballTemp != null)
+        if(ballTemp != null && !ballTemp.GetComponent<Rigidbody2D>().isKinematic)
         {
             Destroy(ballTemp);
             StartCoroutine(LoseBall());

@@ -8,6 +8,7 @@ public static class StaticData
     public static int hiScore = 0;
     public static int destroyedBricks = 0;
     public static int totalDestroyedBricks = 0;
+    public static int maxLevel = 0;
 
 	
 }
