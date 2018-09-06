@@ -13,12 +13,13 @@ public class TitleController : MonoBehaviour
     public Button optionsbutton;
     public GameObject clickFX;
     public GameObject hoverFX;
-    public float waitTime;
     public GameObject canvasTitle;
     public GameObject canvasOptions;
+    public float waitTime;
     public Text highScore;
     public Text bricks;
     public Text maxLevel;
+
 
     //Ordenamos los canvas al iniciar la pantalla
     private void Awake()
