@@ -10,6 +10,8 @@ Left shift to commit suicide
 
 SpaceBar to put the ball in game
 
+ESC to put & quit pause in game
+
 Mouse to navigate menus
 
 -------------------------------------------------------------

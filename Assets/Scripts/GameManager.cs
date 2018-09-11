@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject imageAwesome;
     public GameObject imageSuicide;
     public GameObject imageUPS;
+    public GameObject pauseCanvas;
+    public GameObject clickFX;
+    public GameObject gamePaused;
     public Text scoreText;
     public Text hiScoreText;
     public Text infoText;
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject playerExplosion;
     private GameObject ballExplosionFX;
+    private bool isPaused;
 
     void Awake()
     {
@@ -31,6 +35,8 @@ public class GameManager : MonoBehaviour
         imageAwesome.SetActive(false);
         imageSuicide.SetActive(false);
         imageUPS.SetActive(false);
+        pauseCanvas.SetActive(false);
+        isPaused = false;
     }
     // Use this for initialization
     void Start()
@@ -56,6 +62,19 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("Fire3"))
         {
             SuicideBall();
+        }
+
+        //Boton para pausar
+        if(Input.GetButtonDown("Cancel"))
+        {
+            if(isPaused)
+            {
+                UnPause();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 
@@ -114,7 +133,36 @@ public class GameManager : MonoBehaviour
         imageGo.SetActive(false);
         Instantiate(player, playerInstancier.position, Quaternion.identity);
     }
-        
+
+    //Metodo para pausar el juego
+    public void Pause()
+    {
+        gamePaused.GetComponent<AudioSource>().Play();
+        pauseCanvas.SetActive(true);
+        isPaused = true;
+        Time.timeScale = 0;
+    }
+
+    //Metodo para despausar el juego
+    public void UnPause()
+    {
+        pauseCanvas.SetActive(false);
+        isPaused = false;
+        Time.timeScale = 1;
+    }
+
+    //Metodo para salir del juego en el menu de pausa
+    public void ReturnMenu()
+    {
+        clickFX.GetComponent<AudioSource>().Play();
+        StaticData.totalDestroyedBricks += StaticData.destroyedBricks;
+        if(StaticData.maxLevel < StaticData.level)
+        {
+            StaticData.maxLevel = StaticData.level;
+        }
+        SceneManager.LoadScene("TitleScene");
+    }
+
 }
 
  
