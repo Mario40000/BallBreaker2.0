@@ -42,6 +42,7 @@ public class BrickController : MonoBehaviour
             StaticData.score += score;
             StaticData.destroyedBricks += 1;
             Instantiate(explosionFX, gameObject.GetComponent<Transform>().position, Quaternion.identity);
+            StaticData.remainsBricks--;
             Destroy(gameObject);
         }
     }

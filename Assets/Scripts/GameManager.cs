@@ -23,10 +23,13 @@ public class GameManager : MonoBehaviour
     public Text hiScoreText;
     public Text infoText;
     public Text livesText;
+    public int nextLevel;
+    public int remainsBricks;
 
     private GameObject playerExplosion;
     private GameObject ballExplosionFX;
     private bool isPaused;
+    private bool isFinish = false;
 
     void Awake()
     {
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
         imageUPS.SetActive(false);
         pauseCanvas.SetActive(false);
         isPaused = false;
+        StaticData.remainsBricks = remainsBricks;
     }
     // Use this for initialization
     void Start()
@@ -75,6 +79,13 @@ public class GameManager : MonoBehaviour
             {
                 Pause();
             }
+        }
+
+        //Comprobamos si quedan bloques
+        if(StaticData.remainsBricks <= 0 && isFinish == false)
+        {
+            isFinish = true;
+            StartCoroutine(NextLevel());
         }
     }
 
@@ -161,6 +172,15 @@ public class GameManager : MonoBehaviour
             StaticData.maxLevel = StaticData.level;
         }
         SceneManager.LoadScene("TitleScene");
+    }
+
+   
+    //Metodo para pasar de pantalla
+    IEnumerator NextLevel()
+    {
+        imageAwesome.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Level" + nextLevel.ToString());
     }
 
 }

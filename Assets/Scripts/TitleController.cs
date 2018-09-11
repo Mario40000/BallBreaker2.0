@@ -57,6 +57,7 @@ public class TitleController : MonoBehaviour
         StaticData.lives = 3;
         StaticData.level = 1;
         StaticData.destroyedBricks = 0;
+        StaticData.remainsBricks = 0;
     }
 
     //Metodo para pasar a las opciones
