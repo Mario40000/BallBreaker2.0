@@ -21,7 +21,7 @@ Mouse to navigate menus
 
 - Buttons with sound and hover effect
 
-- Diferent music themes
+- Different music themes
 
 - Bricks destroy with diferent FX
 
@@ -37,7 +37,7 @@ Mouse to navigate menus
 
 - Game over screen
 
-- 12 Diferent bricks
+- 12 Different bricks
 
 - Ball & paddle with physics
 

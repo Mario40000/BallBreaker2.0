@@ -180,6 +180,11 @@ public class GameManager : MonoBehaviour
     {
         StaticData.level++;
         imageAwesome.SetActive(true);
+        GameObject ballTemp = GameObject.FindGameObjectWithTag("Ball");
+        yield return new WaitForSeconds(0.7f);
+        Instantiate(ballExplosion, ballTemp.GetComponent<Transform>().position, Quaternion.identity);
+        ballExplosionFX.GetComponent<AudioSource>().Play();
+        Destroy(ballTemp);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Level" + nextLevel.ToString());
     }
