@@ -178,6 +178,7 @@ public class GameManager : MonoBehaviour
     //Metodo para pasar de pantalla
     IEnumerator NextLevel()
     {
+        StaticData.level++;
         imageAwesome.SetActive(true);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Level" + nextLevel.ToString());

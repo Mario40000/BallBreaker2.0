@@ -15,5 +15,45 @@ ESC to put & quit pause in game
 Mouse to navigate menus
 
 -------------------------------------------------------------
+# Features
+
+- Navigable menus
+
+- Buttons with sound and hover effect
+
+- Diferent music themes
+
+- Bricks destroy with diferent FX
+
+- Suicide button
+
+- Pause menu
+
+- Splash screen
+
+- Menu screen
+
+- 10 screen levels
+
+- Game over screen
+
+- 12 Diferent bricks
+
+- Ball & paddle with physics
+
+- Game loop
+
+--------------------------------------------------------------
+# Future features
+
+- More bricks
+
+- PowerUps
+
+- Persistent stats
+
+- 10 differents and complete leves
+
+--------------------------------------------------------------
 
 

@@ -20,6 +20,10 @@ public class GameOverController : MonoBehaviour {
         scoreText.text = StaticData.score.ToString();
         bricksDestroyed.text = StaticData.destroyedBricks.ToString();
         StaticData.totalDestroyedBricks += StaticData.destroyedBricks;
+        if (StaticData.maxLevel < StaticData.level)
+        {
+            StaticData.maxLevel = StaticData.level;
+        }
         click = GameObject.Find("ClickFX");
     }
 
